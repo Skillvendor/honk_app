@@ -1,0 +1,11 @@
+<br>
+<br>
+<%= button_to "Create Group", new_group_path, class:'butonas btn btn-primary' %>
+<% if @groups %>
+  <ol class="groups-main">
+    <%= render @groups %>
+  </ol>
+  <%= will_paginate @groups %>
+<% else %>
+ <p> You have no groups </p>
+<% end %>

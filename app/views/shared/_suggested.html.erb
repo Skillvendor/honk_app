@@ -1,0 +1,12 @@
+ <% @suggested.each do |user| %>
+  <div class='row'>
+   <div class='sugested_users'>
+   <% if user != current_user %>
+   <%= link_to gravatar_for(user, size: 30), user%>
+   <%= link_to user.name, user %>
+   <br>
+
+   <% end %>
+   </div>
+  </div>
+ <% end %>

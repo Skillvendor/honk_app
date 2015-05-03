@@ -1,0 +1,79 @@
+<li id="tweet-<%= tweet.id %>" class="tweet-list">
+ <div class="background-tweet">
+  <img class="avatarul"><%= link_to gravatar_for(tweet.user, size: 50), tweet.user %></img>
+  <% if is_retweet?(tweet) %>
+  <span class="user text"><%= link_to tweet.user.name, tweet.user %> retweeted: <br></span>
+  <div class = "retweet">
+  <span class="user" style="margin-left: 5%"><%= link_to get_original_tweet(tweet).user.name, get_original_tweet(tweet).user %></span>
+  <span class="content" style="margin-left: 17%">
+  <%= twitify(get_original_tweet(tweet).content) %>
+      <%= image_tag get_original_tweet(tweet).picture.url if get_original_tweet(tweet).picture? %>
+</span>
+  <span class="timestamp" style="margin-left: 17%">
+    Posted <%= time_ago_in_words(get_original_tweet(tweet).created_at) %> ago.
+  </span>
+  </div>
+  <span class="user text" style="margin-left: 10%"><%= link_to tweet.user.name, tweet.user %> also added: </p> </span>
+    <span class="content">
+  <%= twitify(tweet.content) %>
+      <%= image_tag tweet.picture.url if tweet.picture? %>
+</span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(tweet.created_at) %> ago.
+    <% if current_user?(tweet.user) %>
+      <%= link_to "delete", tweet, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% else if !isgrouptweet?(tweet)%>
+      <button type="button" class="retweet-button " data-target-form-id="<%= "#retweet-form-#{tweet.id}" %>">retweet</button>
+    
+  </span>
+  <div>
+  <%= form_for(current_user.tweets.build,url: retweet_act_path, method: :post, html: { multipart: true, :class => "retweet_form", id: "retweet-form-#{tweet.id}" }) do |f| %>
+  <%= f.hidden_field :original_tweet_id, value: tweet.id %>
+  <%= f.text_area :content, placeholder: "Add a message to the tweet..." ,class: "retweet_text_area2" %> 
+  <%= f.submit "Retweet" ,class: "retweet_button2 btn btn-primary"%>
+  <% end %>
+    <% end %>  
+    <% end %>
+  </div>
+  <div>
+  
+  <% else %>
+  <span class="user"><%= link_to tweet.user.name, tweet.user %></span>
+  <span class="content">
+  <%= twitify(tweet.content) %>
+      <%= image_tag tweet.picture.url if tweet.picture? %>
+</span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(tweet.created_at) %> ago.
+    <% if current_user?(tweet.user) %>
+      <%= link_to "delete", tweet, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% else if !isgrouptweet?(tweet)%>
+      <button type="button" class="retweet-button" data-target-form-id="<%= "#retweet-form-#{tweet.id}" %>">retweet</button>
+  <%= form_for(current_user.tweets.build,url: retweet_act_path, method: :post, html: { multipart: true, :class => "retweet_form", id: "retweet-form-#{tweet.id}" }) do |f| %>
+  <%= f.hidden_field :original_tweet_id, value: tweet.id %>
+  <%= f.text_area :content, placeholder: "Add a message to the tweet..." ,class: "retweet_text_area" %> 
+  <%= f.submit "Retweet" ,class: "retweet_button btn btn-primary"%>
+        <% end %>
+      <% end %>  
+    <% end %>
+  </span>
+  <% end %>
+ </div>
+</li>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+
+ $('.retweet_form').hide(); //Initially form wil be hidden.
+
+  $('.retweet-button').click(function() {
+   var formId = $(this).data('target-form-id');//Form shows on button click
+   $(formId).show();
+
+   });
+ });
+
+
+</script>

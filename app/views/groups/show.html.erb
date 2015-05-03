@@ -1,0 +1,27 @@
+<% provide(:title, "Group " ) %>
+
+<% if logged_in? && is_member?(current_user.id,params[:id]) %>
+<div class="row">
+ <div class="col-md-3">
+   <section class="stats">
+    <%= render 'shared/group_stats' %>
+    </section>
+ </div>
+  <div class="col-md-6 col-md-offset-1">
+
+    
+     <section class="tweet_form">
+        <%= render 'shared/tweet_form' %>
+     </section>
+    
+
+    <h3> Group Tweets </h3>
+    
+    <%= render 'shared/feed' %>
+    
+
+  </div>
+</div>
+<% else %> 
+ <h1> You are not a member of this group! </h1>
+ <% end %>

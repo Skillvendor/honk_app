@@ -1,0 +1,46 @@
+<h3 class="text"><b><%= @group.name %></b></h3>
+<span class="text"></span>
+<div class="stats">
+  <a href="#">
+    <strong id="following" class="stat">
+     <%= pluralize(@feed_items.count, "tweet") %>
+    </strong>
+    in group
+  </a>
+  <a data-toggle="modal" data-target="#detailsModal<%= @group.id %>">
+    <strong id="followers" class="stat">
+     <%=@users.count  %>
+    </strong>
+    Membrii
+  </a>
+
+  <div class="modal fade" id="detailsModal<%= @group.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+       <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           <h4 class="modal-title text" id="myModalLabel">Membrii</h4>
+       </div>
+      <div class="modal-body modal-text">
+      <ul class="users">
+        <% @users.each do |user| %>
+				<li>
+  				<%= gravatar_for user, size: 50 %>
+  				<%= link_to user.name, user %>
+  				<% if (current_user.id == group_owner && user.id != group_owner) %>
+   					<%= link_to "Kick", kick_group_path(:id =>params[:id] , :user_id => user.id), method: :get, 
+                                  data: { confirm: "You sure?" } %>
+   					<%= link_to "Ban", ban_group_path(:id =>params[:id] , :user_id => user.id), method: :get, 
+                                  data: { confirm: "You sure?" } %>
+ 					<% end %>
+				</li>
+				<% end %>
+			</ul>
+      </div>
+      <div class="modal-footer">
+     	 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                          
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

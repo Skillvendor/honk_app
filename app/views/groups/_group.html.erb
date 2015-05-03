@@ -1,0 +1,26 @@
+<li id="tweet-<%= group.id %>">
+  <%= link_to group.name, group_path(group.id), class:'group-name' %>
+    <span class="group-content">
+     <%= group.description %>
+    </span>
+  <span class="group-timestamp">
+    <% if is_admin?(group.admin) %>
+      <%= link_to "delete", group, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+      <%= link_to "edit", edit_group_path(group) %>
+      <%= link_to "add_members", add_members_path(group) %>
+     <% else if is_member?(current_user.id,group.id)%>
+        <%= link_to "leave_group", leave_group_path(group) %>
+       <%else if (is_open?(group.id) && is_banned?(current_user.id,group.id)) %>
+        
+        <%= link_to "join", add_members_db_path(:group =>group.id , :user_id => current_user.id,id: 5), method: :post, 
+                                  data: { confirm: "You sure?" } %>
+  </span>
+        <p class="group-p"> you have nothing in common with this group but you can join it by pressing the join button </p>
+          <% else %>
+           <p class="group-p"> this group is private and you can't join it,or you have been banned from it </p>
+         <% end %>
+       <% end %>
+    <% end %>
+  
+</li>

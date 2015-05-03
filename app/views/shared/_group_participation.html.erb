@@ -1,0 +1,12 @@
+<h5 class="text"> Your groups: </h5>
+<% if @groupies %>
+<ol class="groupie">
+    <%= content_tag_for(:li, @groupies) do |group| %>
+      <%= link_to group.name, group_path(group)  %>
+      <% if is_member?(current_user.id,group.id) && !is_group_admin(group.id) %>
+        <%= link_to "leave_group", leave_group_path(group) %>
+      <% end %>
+    <% end %>
+</ol>
+ <%= will_paginate @groupies %>
+<% end %>  

@@ -1,0 +1,11 @@
+<li>
+  <%= gravatar_for user, size: 50 %>
+  <%= link_to user.name, user %>
+  <p> salut </p>
+  <% if current_user.id == group_owner && !current_user?(user) %>
+    | <%= link_to "add_member", user, method: :post,
+                                  data: { confirm: "You sure?" } %>
+  <% end %>
+
+
+</li>

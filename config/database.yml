@@ -23,6 +23,7 @@
 #production:
 #  <<: *default
 #  database: db/production.sqlite3
+
 default: &default
   adapter: postgresql
   database: licenta
@@ -49,4 +50,5 @@ production:
   host: localhost
   pool: 5
   timeout: 5000
+
 

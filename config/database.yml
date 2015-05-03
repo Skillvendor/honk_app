@@ -23,30 +23,30 @@
 #production:
 #  <<: *default
 #  database: db/production.sqlite3
-
-  default: &default
+default: &default
   adapter: postgresql
-  database: rails_catalog
-  username: postgres
-  password: postgres
+  database: licenta
+  username: licenta
+  password: flo
   host: localhost
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: db/development_db
+  database: licenta
 
 
   test:
   <<: *default
-  database: db/test_db
+  database: licenta
 
 production:
   adapter: postgresql
-  database: rails_catalog
+  database: licenta
   username: '<%= ENV["POSTGRES_USERNAME"] %>'
   password: '<%= ENV["POSTGRES_PASSWORD"] %>'
   host: localhost
   pool: 5
   timeout: 5000
+

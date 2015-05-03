@@ -1,6 +1,6 @@
 <br>
 <br>
-<%= button_to "Create Group", new_group_path, class:'butonas btn btn-primary' %>
+<%= button_to "Create Group", new_group_path, method: :get, class:'butonas btn btn-primary' %>
 <% if @groups %>
   <ol class="groups-main">
     <%= render @groups %>

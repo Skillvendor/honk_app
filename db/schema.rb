@@ -13,6 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20150328124901) do
 
+  # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "bans", force: true do |t|
@@ -29,18 +30,9 @@ ActiveRecord::Schema.define(version: 20150328124901) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "followers", ["followed_id"], name: "index_followers_on_followed_id"
-  add_index "followers", ["follower_id", "followed_id"], name: "index_followers_on_follower_id_and_followed_id", unique: true
-  add_index "followers", ["follower_id"], name: "index_followers_on_follower_id"
-
-  create_table "group_tweets", force: true do |t|
-    t.string   "content"
-    t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "group_tweets", ["group_id"], name: "index_group_tweets_on_group_id"
+  add_index "followers", ["followed_id"], name: "index_followers_on_followed_id", using: :btree
+  add_index "followers", ["follower_id", "followed_id"], name: "index_followers_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "followers", ["follower_id"], name: "index_followers_on_follower_id", using: :btree
 
   create_table "grouprels", force: true do |t|
     t.integer  "user_id"
@@ -49,7 +41,7 @@ ActiveRecord::Schema.define(version: 20150328124901) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "grouprels", ["user_id", "group_id"], name: "index_grouprels_on_user_id_and_group_id", unique: true
+  add_index "grouprels", ["user_id", "group_id"], name: "index_grouprels_on_user_id_and_group_id", unique: true, using: :btree
 
   create_table "groups", force: true do |t|
     t.text     "name"
@@ -60,7 +52,7 @@ ActiveRecord::Schema.define(version: 20150328124901) do
     t.boolean  "open",        default: true
   end
 
-  add_index "groups", ["name"], name: "index_groups_on_name", unique: true
+  add_index "groups", ["name"], name: "index_groups_on_name", unique: true, using: :btree
 
   create_table "hashrelations", force: true do |t|
     t.integer  "tweet_id"
@@ -69,7 +61,7 @@ ActiveRecord::Schema.define(version: 20150328124901) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "hashrelations", ["tweet_id", "hashtag_id"], name: "index_hashrelations_on_tweet_id_and_hashtag_id", unique: true
+  add_index "hashrelations", ["tweet_id", "hashtag_id"], name: "index_hashrelations_on_tweet_id_and_hashtag_id", unique: true, using: :btree
 
   create_table "hashtags", force: true do |t|
     t.string   "name"
@@ -94,8 +86,8 @@ ActiveRecord::Schema.define(version: 20150328124901) do
     t.integer  "original_tweet_id"
   end
 
-  add_index "tweets", ["user_id", "created_at"], name: "index_tweets_on_user_id_and_created_at"
-  add_index "tweets", ["user_id"], name: "index_tweets_on_user_id"
+  add_index "tweets", ["user_id", "created_at"], name: "index_tweets_on_user_id_and_created_at", using: :btree
+  add_index "tweets", ["user_id"], name: "index_tweets_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "name"
@@ -107,6 +99,6 @@ ActiveRecord::Schema.define(version: 20150328124901) do
     t.boolean  "admin",           default: false
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
 
 end

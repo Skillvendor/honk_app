@@ -49,6 +49,5 @@ production:
   password: '<%= ENV["POSTGRES_PASSWORD"] %>'
   host: localhost
   pool: 5
-  timeout: 5000
-
+  timeout: 100000
 

@@ -16,8 +16,14 @@ class TweetsController < ApplicationController
   end
 
   def destroy
+    @retweets = Tweet.where(id: @tweet.id)
+
+    @retweets.each do |retweet|
+      retweet.destroy
+    end
+    
     @tweet.destroy
-    flash[:success] = "Micropost deleted"
+    flash[:success] = "Tweet deleted"
     redirect_to request.referrer || root_url
   end
 

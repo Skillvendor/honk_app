@@ -16,12 +16,12 @@ class TweetsController < ApplicationController
   end
 
   def destroy
-    @retweets = Tweet.where(id: @tweet.id)
+    @retweets = Tweet.where(original_tweet_id: @tweet.id)
 
     @retweets.each do |retweet|
       retweet.destroy
     end
-    
+
     @tweet.destroy
     flash[:success] = "Tweet deleted"
     redirect_to request.referrer || root_url

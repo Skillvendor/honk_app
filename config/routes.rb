@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/groups/:id(.:format)/ban' => 'groups#ban', as: :ban_group
   post '/suggested' => 'users#suggest', as: :get_suggested
   post '/groups/:id(.:format)/removeban' => 'groups#remove_ban', as: :removeban_group
+  match '/confirm/:id/:confirmation_code', to: 'users#confirm', via: 'get', as: 'confirm'
 
 
   resources :tweets,          only: [:create, :destroy]

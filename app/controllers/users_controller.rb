@@ -22,11 +22,28 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "Welcome to Honk App!"
-      redirect_to @user
+      link = url_for(:action => 'confirm', :id => @user.id,
+                       :confirmation_code => @user.confirmation_code)
+      UserMailer.confirmation_email(@user, link).deliver!
+      flash[:success] = "Welcome to Honk App! Please confirm your e-mail!"
+      redirect_to root_url
     else
       render 'new'
+    end
+  end
+
+  def confirm
+    user = User.find(params[:id])
+    if user.confirmation_code == params[:confirmation_code]
+      user.activated = true
+      user.confirmation_code = nil
+      user.save
+      flash[:success] = "Confirmare reusita. Bine ai venit!"
+      log_in user
+      redirect_to root_url
+    else
+      flash[:danger] = "Link-ul nu e valid!"
+      redirect_to signup_path
     end
   end
 

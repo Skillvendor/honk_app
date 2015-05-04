@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessor :remember_token
   before_save { self.email = email.downcase }
+  before_create {
+    set_register_fields
+  }
   has_many :tweets, dependent: :destroy
   has_many :suggesteds, dependent: :destroy
   has_many :bans, dependent: :destroy
@@ -84,4 +87,20 @@ class User < ActiveRecord::Base
   def candidates(user)
     @following = user.following
   end
+
+  def confirmed?
+    self.activated == true
+  end
+
+  private
+
+     def set_register_fields
+      self.confirmation_code = SecureRandom.urlsafe_base64
+      # for the time being, we don't want the link to expire
+      # self.confirmation_expire = 10.hours.from_now
+      #if Rails.env.development?
+      #  self.confirmed = true
+      #end
+      true # if you remove this instruction I will kill you (Ionut)
+    end
 end

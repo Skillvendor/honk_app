@@ -42,7 +42,10 @@ module SessionsHelper
   def current_user?(user)
     user == current_user
   end
-
+   
+  def confirmed?
+    self.activated == true
+  end
   # Redirects to stored location (or to the default).
   def redirect_back_or(default)
     redirect_to(session[:forwarding_url] || default)

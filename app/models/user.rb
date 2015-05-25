@@ -89,7 +89,7 @@ class User < ActiveRecord::Base
   end
 
   def confirmed?
-    self.activated == true
+    self.activated
   end
 
   private

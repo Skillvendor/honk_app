@@ -18,9 +18,11 @@
    
     <% if @user.tweets.any? %>
       <h3>Tweets (<%= @user.tweets.count %>)</h3>
-      <ol class="tweets">
+      <div class="container1">
+      <ol class="tweets container2">
         <%= render @tweets %>
       </ol>
+       </div>
       <%= will_paginate @tweets %>
     <% end %>
   </div>

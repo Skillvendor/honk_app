@@ -704,8 +704,18 @@ a:hover{
     position: static;
 }
 
-#tweet_class{
-  height: 65em;
-  overflow-y: scroll;
+.container1 {
+    height: 58em;
+    overflow: hidden;
+    position: relative;
+    
 }
-
+.container2 {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: -15px;
+    overflow: auto;
+    padding-right: 15px;
+}

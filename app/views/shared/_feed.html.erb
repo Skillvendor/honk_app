@@ -1,6 +1,8 @@
 <% if @feed_items %>
-  <ol class="tweets" id = "tweet_class">
+<div class="container1">
+  <ol class="tweets container2" id="tweet_class">
     <%= render @feed_items %>
   </ol>
+ </div>
   <%= will_paginate @feed_items %>
-<% end %>
+<% end %>	

@@ -76,7 +76,7 @@ class ApplicationController < ActionController::Base
      @rest_of_users_strings ## storing all the text from all the tweets a user, that the current user is not following, has.
      scoreHash = Hash.new ## a score hash where the score between the similarities found by the TfIdSimilarity gem are kept
      @rezultat = [] ## the array of users returned 
-     @users = User.all ## all the users
+     @users = User.all.includes(:tweets) ## all the users
      @rest_of_users = [] ## all the users that the current user is not following
      @following = user.following + Array(user) ## all the user the current user is following + the user
 

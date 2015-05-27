@@ -18369,3 +18369,281 @@ Processing by StaticPagesController#home as HTML
   Rendered layouts/_header.html.erb (0.8ms)
   Rendered layouts/_footer.html.erb (0.0ms)
 Completed 200 OK in 706ms (Views: 412.9ms | ActiveRecord: 41.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2015-05-27 12:24:56 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StaticPagesController#home as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:Tweet> at /home/flo/honk/honk_app/app/models/tweet.rb:6)
+DEPRECATION WARNING: Currently, Active Record suppresses errors raised within `after_rollback`/`after_commit` callbacks and only print them to the logs. In the next version, these errors will no longer be suppressed. Instead, the errors will propagate normally just like in other Active Record callbacks.
+
+You can opt into the new behavior and remove this warning by setting:
+
+  config.active_record.raise_in_transactional_callbacks = true
+
+ (called from <class:Tweet> at /home/flo/honk/honk_app/app/models/tweet.rb:6)
+  [1m[36m (1.4ms)[0m  [1mSELECT "users".id FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35m (0.7ms)[0m  SELECT "grouprels"."group_id" FROM "grouprels" WHERE "grouprels"."user_id" = $1  [["user_id", 1]]
+  [1m[36mUser Load (1.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 3]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 4]]
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 5]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 6]]
+  [1m[35mUser Load (1.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 7]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 8]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 9]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 10]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 11]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 12]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 13]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 14]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 15]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 16]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 17]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 18]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 19]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 20]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 21]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 22]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 23]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 24]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 25]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 26]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 27]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 28]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 29]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 30]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 31]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 32]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 33]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 34]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 35]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 36]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 37]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 38]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 39]]
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 40]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 41]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 42]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 43]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 44]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 45]]
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 46]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 47]]
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 48]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 49]]
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 50]]
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1  [["followed_id", 51]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1[0m  [["follower_id", 1]]
+  [1m[35m (0.5ms)[0m  SELECT "suggesteds"."user_id" FROM "suggesteds" WHERE "suggesteds"."owner" = $1  [["owner", 1]]
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered shared/_user_info.html.erb (5.5ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 1]]
+  Rendered shared/_stats.html.erb (7.8ms)
+  [1m[35mGroup Load (1.2ms)[0m  SELECT  "groups".* FROM "groups" WHERE 1=0 LIMIT 30 OFFSET 0
+  Rendered shared/_group_participation.html.erb (6.4ms)
+  Rendered shared/_error_messages.html.erb (66.9ms)
+  Rendered shared/_tweet_form.html.erb (143.0ms)
+  [1m[36mTweet Load (2.5ms)[0m  [1mSELECT  "tweets".* FROM "tweets" WHERE (user_id in (3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51) OR user_id = 1 ) AND "tweets"."group" IS NULL  ORDER BY "tweets"."created_at" DESC LIMIT 30 OFFSET 0[0m
+  [1m[35m (1.1ms)[0m  SELECT COUNT(*) FROM "tweets" WHERE (user_id in (3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51) OR user_id = 1 ) AND "tweets"."group" IS NULL
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 6]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 5]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 4]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 3]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 6]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 5]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 4]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 3]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered tweets/_tweet.html.erb (7376.1ms)
+  Rendered shared/_feed.html.erb (7388.5ms)
+  Rendered shared/_suggested.html.erb (0.9ms)
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (96, 97, 98, 99, 100)[0m
+  Rendered shared/_suggested2.html.erb (4.3ms)
+  Rendered static_pages/home.html.erb within layouts/application (7632.0ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 8933ms (Views: 8175.5ms | ActiveRecord: 59.5ms)
+
+
+Started GET "/assets/followers.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/groups.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/jquery.mCustomScrollbar.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/group_tweets.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/my.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/sessions.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/static_pages.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/tweets.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/users.css?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/followers.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/group_tweets.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/groups.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/jquery.mCustomScrollbar.concat.min.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/require.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/sessions.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/static_pages.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/tweets.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/users.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2015-05-27 12:25:05 +0300
+
+
+Started GET "/users" for 127.0.0.1 at 2015-05-27 12:25:11 +0300
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[35mUser Load (0.8ms)[0m  SELECT  "users".* FROM "users" LIMIT 10 OFFSET 0
+  Rendered users/_user.html.erb (5.1ms)
+  Rendered users/index.html.erb within layouts/application (24.3ms)
+  Rendered layouts/_header.html.erb (1.7ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 329ms (Views: 324.3ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/users/1" for 127.0.0.1 at 2015-05-27 12:25:14 +0300
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.1ms)[0m  SELECT COUNT(*) FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."followed_id" WHERE "followers"."follower_id" = $1  [["follower_id", 1]]
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "users" INNER JOIN "followers" ON "users"."id" = "followers"."follower_id" WHERE "followers"."followed_id" = $1[0m  [["followed_id", 1]]
+  Rendered shared/_stats.html.erb (7.4ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT 1  [["id", 1]]
+  Rendered users/_follow_form.html.erb (1.3ms)
+  [1m[36mTweet Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM "tweets" WHERE "tweets"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35m (0.6ms)[0m  SELECT COUNT(*) FROM "tweets" WHERE "tweets"."user_id" = $1  [["user_id", 1]]
+  [1m[36mTweet Load (0.8ms)[0m  [1mSELECT  "tweets".* FROM "tweets" WHERE "tweets"."user_id" = $1  ORDER BY "tweets"."created_at" DESC LIMIT 30 OFFSET 0[0m  [["user_id", 1]]
+  Rendered tweets/_tweet.html.erb (89.9ms)
+  Rendered users/show.html.erb within layouts/application (123.2ms)
+  Rendered layouts/_header.html.erb (0.8ms)
+  Rendered layouts/_footer.html.erb (0.1ms)
+Completed 200 OK in 364ms (Views: 352.7ms | ActiveRecord: 5.1ms)

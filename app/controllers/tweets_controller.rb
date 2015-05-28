@@ -7,11 +7,10 @@ class TweetsController < ApplicationController
     @tweet = current_user.tweets.build(tweet_params)
     if @tweet.save
       add_hashtags(@tweet)
-      flash[:success] = "Tweet created!"
       redirect_to :back
     else
       @feed_items = []
-      render 'static_pages/home'
+      redirect_to :back
     end
   end
 
@@ -38,11 +37,10 @@ class TweetsController < ApplicationController
     @tweet = current_user.tweets.build(retweet_params)
     if @tweet.save
       add_hashtags(@tweet)
-      flash[:success] = "Tweet created!"
       redirect_to root_url
     else
       @feed_items = []
-      render 'static_pages/home'
+      redirect_to :back
     end
   end 
 

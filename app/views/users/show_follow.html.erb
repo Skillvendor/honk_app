@@ -14,9 +14,11 @@
   <div class="col-md-8">
     <h3><%= @title %></h3>
     <% if @users.any? %>
-      <ul class="users follow">
+     <div class="container1">
+      <ul class="users follow container2">
         <%= render @users %>
       </ul>
+     </div>
       <%= will_paginate %>
     <% end %>
   </div>

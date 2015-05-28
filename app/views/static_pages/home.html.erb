@@ -8,9 +8,12 @@
         <%= render 'shared/stats' %>
       </section>
       
+      <% if @groupies.any? %>
       <section class="groups">
         <%= render 'shared/group_participation' %>
       </section>
+      <% end %>
+
     </aside>
     <div class="col-md-6" id="feed">
       <section class="tweet_form">
@@ -27,7 +30,13 @@
       <% end %>
       <br>
       <%= button_to "Suggest", get_suggested_path, class: "btn btn-primary buton-sugest" %>
-  </div>
+    </div>
+    <div class="col-md-3 pull-right" style='margin-top: 15px' id="trending">  
+      <br>
+      <%= render 'shared/trendingHashtag' %>
+      <br>
+    </div>
+    
 <% else %>
  <div class="center jumbotron">
     <h1>Welcome to HonkA</h1>

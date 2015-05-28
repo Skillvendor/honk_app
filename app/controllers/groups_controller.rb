@@ -1,6 +1,6 @@
 class GroupsController < ApplicationController
-	before_action :logged_in_user
-	before_action :correct_user,   only: :destroy
+  before_action :logged_in_user
+  before_action :correct_user,   only: :destroy
 
 
   def index
@@ -8,13 +8,13 @@ class GroupsController < ApplicationController
     @groups = @search.result.paginate(page: params[:page])
   end
 
-	def show
+  def show
     @tweet = current_user.tweets.build
-	  @group = Group.find_by_id(params[:id])
+    @group = Group.find_by_id(params[:id])
     @ids = Grouprel.where(group_id: params[:id]).pluck(:user_id)
     @users = User.where(id: @ids)
     @feed_items = current_user.group_feed(params[:id]).paginate(page: params[:page])
-	end
+  end
 
   def leave_group
     @group = Group.find_by_id(params[:id])
@@ -22,23 +22,21 @@ class GroupsController < ApplicationController
     redirect_to request.referrer
   end
 
-	def create
-	  @group = Group.new(group_params)
-	  @group.admin = session[:user_id]
-	  if @group.save
-	  	@grouprel = Grouprel.new(user_id: current_user.id,group_id: @group.id)
-	  	@grouprel.save
-	  	flash[:succes] = "Group created"
-	  	redirect_to root_path
-	   else
-	   	render 'new'
-	  end
+  def create
+    @group = Group.new(group_params)
+    @group.admin = session[:user_id]
+    if @group.save
+      @grouprel = Grouprel.new(user_id: current_user.id,group_id: @group.id)
+      @grouprel.save
+      redirect_to root_path
+     else
+      render 'new'
+    end
   end
 
   def update
     @group = Group.find_by_id(params[:id])
     if @group.update_attributes(group_params)
-      flash[:success] = "Group updated"
       redirect_to manage_groups_path
     else
       render 'edit'
@@ -66,7 +64,7 @@ class GroupsController < ApplicationController
 
   def show_to_add
     @users = User.all
-  	@group_users = @users.paginate(page: params[:page])
+    @group_users = @users.paginate(page: params[:page])
   end
 
   def add_member
@@ -125,14 +123,14 @@ class GroupsController < ApplicationController
       end
 
       def correct_user
-      	@group = Group.find_by_id(params[:id])
-      	ok = (session[:user_id] == @group.admin)
-      	redirect_to root_url unless ok
+        @group = Group.find_by_id(params[:id])
+        ok = (session[:user_id] == @group.admin)
+        redirect_to root_url unless ok
       end
 
       def add_memeber(user_id)
-      	@grouprel = Grouprel.new(user_id: user_id,group_id: group.id)
-      	@grouprel.save
+        @grouprel = Grouprel.new(user_id: user_id,group_id: group.id)
+        @grouprel.save
       end
 
       

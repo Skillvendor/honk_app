@@ -121,6 +121,7 @@ class ApplicationController < ActionController::Base
     @rezultat ## returning the resulting users
   end
 
+
     private
 
       def count_tweets(user)

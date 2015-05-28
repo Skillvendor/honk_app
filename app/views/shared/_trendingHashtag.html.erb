@@ -1,0 +1,9 @@
+ <h5 class="text"> Trending: </h5>
+ <% @hashtags.each do |hashtag| %>
+  <div class='row'>
+   <div class='sugested_users'>
+   <%= link_to hashtag.name, hashtag_path(hashtag.name) %>
+   <br>
+   </div>
+  </div>
+ <% end %>

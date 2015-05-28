@@ -10,6 +10,7 @@ body {
   padding-top: 60px;
   background-color: #7f8c8d;
   background-image: url("sixth.png");
+  height: 80%;
 }
 
 section {
@@ -83,6 +84,10 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
+  bottom: 0;
+  position: absolute;
+  width: 90%;
+  text-align: center;
 }
 
 footer a {
@@ -506,6 +511,7 @@ transition: background-color 0.2s ease 0s;
 .groups-main{
   list-style: none;
   padding: 0;
+  overflow: hidden;
 
   
   li {
@@ -719,3 +725,32 @@ a:hover{
     overflow: auto;
     padding-right: 15px;
 }
+
+.special{
+  height: 20em;
+}
+
+
+#trending{
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px #888888;
+  background-color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.3);
+  a{
+   color: #0789C3;
+   padding-left: 5%;
+  }
+}
+
+.navbar-nav{
+ a{
+  color: white !important;
+ }
+}
+.dropdown-menu{
+  a{
+    color: black !important;
+  }
+}
+

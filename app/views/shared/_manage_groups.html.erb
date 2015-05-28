@@ -2,10 +2,12 @@
 <br>
 <%= button_to "Create Group", new_group_path, method: :get, class:'butonas btn btn-primary' %>
 <% if @groups %>
-  <ol class="groups-main">
+ <div class="special container1">
+  <ol class="groups-main container2">
     <%= render @groups %>
   </ol>
   <%= will_paginate @groups %>
+  </div>
 <% else %>
  <p> You have no groups </p>
 <% end %>

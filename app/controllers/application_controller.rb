@@ -23,6 +23,16 @@ class ApplicationController < ActionController::Base
     return all
   end
 
+  def delete_tweet(person)
+   @tweets = Tweet.where(user_id: person.id)
+    destroy_retweets_group(@tweets)
+    if @tweets
+      @tweets.each do |tweet|
+        tweet.destroy
+      end
+    end
+  end
+
   def delete_tweets(group)
     @tweets = Tweet.where(group: group.id)
     destroy_retweets_group(@tweets)

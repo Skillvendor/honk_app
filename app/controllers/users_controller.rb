@@ -63,11 +63,12 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.where(id: params[:id]).first
+    delete_tweet(@user)
     @grouprel = Grouprel.where(user_id: @user.id)
 
     if @grouprel
     @grouprel.each do |group|
-      @groups = Group.where(id: group.group_id).first
+      @groups = Group.where(id: group.group_id, admin: @user.id).first
 
       if @groups
       delete_tweets(@groups)

@@ -52,6 +52,7 @@ class GroupsController < ApplicationController
   end
 
   def destroy
+    delete_tweets(@group)
     @group.destroy
     redirect_to manage_groups_path
   end
@@ -63,7 +64,8 @@ class GroupsController < ApplicationController
   end
 
   def show_to_add
-    @users = User.all
+    WillPaginate.per_page = 9
+    @users = User.all.paginate(page: params[:page])
     @group_users = @users.paginate(page: params[:page])
   end
 
@@ -71,10 +73,8 @@ class GroupsController < ApplicationController
     group_id = params[:group]
     @group_rel = Grouprel.new(user_id: params[:user_id],group_id: group_id)
     if @group_rel.save
-      flash[:success] = "User added!"
       redirect_to request.referrer
     else
-      flash[:error] = "User Not Added"
       redirect_to request.referrer
     end
   end 
@@ -83,10 +83,8 @@ class GroupsController < ApplicationController
     group_id = params[:id]
     @group_rel = Grouprel.where(user_id: params[:user_id],group_id: group_id)
     if @group_rel.destroy_all
-      flash[:succes] = "User kicked"
       redirect_to request.referrer
     else
-      flash[:error] = "User not kicked"
       redirect_to request.referrer
     end
   end
@@ -96,10 +94,8 @@ class GroupsController < ApplicationController
     @group_rel = Grouprel.where(user_id: params[:user_id],group_id: group_id)
     @ban_rel = Ban.new(user_id: params[:user_id], group_id: group_id)
     if @ban_rel.save && @group_rel.destroy_all
-      flash[:success] = "User banned!"
       redirect_to request.referrer
     else
-      flash[:error] = "User Not banned"
       redirect_to request.referrer
     end
   end
@@ -108,10 +104,8 @@ class GroupsController < ApplicationController
     group_id = params[:id]
     @ban_rel = Ban.where(user_id: params[:user_id], group_id: group_id)
     if @ban_rel.destroy_all
-      flash[:success] = "User debanned!"
       redirect_to request.referrer
     else
-      flash[:error] = "User Not debanned"
       redirect_to request.referrer
     end
   end

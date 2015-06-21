@@ -6,8 +6,9 @@
   <ol class="groups-main container2">
     <%= render @groups %>
   </ol>
-  <%= will_paginate @groups %>
+  
   </div>
+  <%= will_paginate @group_users %>
 <% else %>
  <p> You have no groups </p>
 <% end %>

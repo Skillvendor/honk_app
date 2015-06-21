@@ -16,7 +16,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @tweets = @user.tweets.paginate(page: params[:page])
+    @tweets = @user.tweets.where(group: nil).paginate(page: params[:page])
   end
 
   def create
@@ -62,7 +62,21 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    @user = User.where(id: params[:id]).first
+    @grouprel = Grouprel.where(user_id: @user.id)
+
+    if @grouprel
+    @grouprel.each do |group|
+      @groups = Group.where(id: group.group_id).first
+
+      if @groups
+      delete_tweets(@groups)
+      @groups.destroy
+      end
+
+    end
+    end
+    @user.destroy
     flash[:success] = "User deleted"
     redirect_to users_url
   end

@@ -9,8 +9,11 @@ module TweetsHelper
 
     def add_hashtags(tweet)
      tweet.content.scan(/(?:\s|^)(?:#(?!(?:\d+|\w+?_|_\w+?)(?:\s|$)))(\w+)(?=\s|$)/).flatten.each do  |tag|
+
        hashtag = Hashtag.where(name: tag.strip).first_or_create
-       Hashrelation.create(tweet_id: tweet.id, hashtag_id: hashtag.id)
+       if Hashrelation.where(tweet_id: tweet.id, hashtag_id: hashtag.id).empty?
+        Hashrelation.create(tweet_id: tweet.id, hashtag_id: hashtag.id)
+       end
      end
     end
 

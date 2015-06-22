@@ -44,9 +44,10 @@ class ApplicationController < ActionController::Base
   end
 
   def destroy_retweets(tweet)
-    @retweets = Tweet.where(original_tweet_id: @tweet.id)
-    if @retweets
-      @retweets.each do |retweet|
+    retweets = Tweet.where(original_tweet_id: tweet.id)
+    if retweets.any?
+      retweets.each do |retweet|
+        destroy_retweets(retweet)
         retweet.destroy
       end
     end
